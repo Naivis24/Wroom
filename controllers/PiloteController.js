@@ -4,7 +4,17 @@ let model = require('../models/pilote.js');
 
 module.exports.Repertoire = function(request, response){
    response.title = 'Répertoire des pilotes';
-    model.getListePilote( function (err, result) {
+    model.getListePiloteLettre( function (err, result) {
+        if (err) {
+            // gestion de l'erreur
+            console.log(err);
+            return;
+        }
+        response.listeLettrePilote = result;
+        response.render('repertoirePilotes', response);
+});
+
+    model.getListePiloteFor1Letter( function (err, result) {
         if (err) {
             // gestion de l'erreur
             console.log(err);
