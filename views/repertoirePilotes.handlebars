@@ -1,2 +1,9 @@
+<p>Cliquez sur une lettre : <p> 
 
-<h1> Mettre ici la première lettre du nom des pilotes </h1>
+<table class = "listenoms">
+	<tr>	
+		{{#each listePilote}}
+			<td><a href ="#">{{this.lettre}}</a></td>
+		{{/each}}
+	</tr>
+</table>
