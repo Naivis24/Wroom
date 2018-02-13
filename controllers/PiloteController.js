@@ -20,7 +20,7 @@ module.exports.Repertoire = function(request, response){
             console.log(err);
             return;
         }
-        response.listePilote = result;
-        response.render('repertoirePilotes', response);
+        response.listePiloteFor1Lettre = result;
+        response.render('repertoirePilotesLettre', response);
 });
 }
