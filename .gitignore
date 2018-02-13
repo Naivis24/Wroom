@@ -4,3 +4,4 @@
 # Ignorer le repertoire node_modules
 node_modules/*
 package-lock.json
+package.json
