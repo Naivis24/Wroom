@@ -20,6 +20,7 @@
         <p><strong>Taille : </strong>{{this.piltaille}} Cm</p>
         <br/>
         <p><strong>Principaux sponsors : </strong></p>
+        <!-- Les sponsors -->
         {{#each ../lesSponsors}}
           <p><strong>{{this.sponom}}</strong> ({{this.sposectactivite}})</p>
         {{else}}
@@ -28,6 +29,11 @@
         <br/>
         <p><strong>Qui suis-je ? : </strong>{{this.piltexte}}</p>
         <!-- les photos -->
+        {{#each ../lesPhotos}}
+          <img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{../this.pilprenom}} {{../this.pilnom}}" height="100" width="100">
+        {{else}}
+          <p>Aucune autre image disponible</p>
+        {{/each}}
     </tr>
   </table>
 {{/each}}

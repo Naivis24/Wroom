@@ -74,3 +74,19 @@ module.exports.getSponsorFor1Pilote = function (pilnum, callback) {
          }
       });
 };
+
+module.exports.getPhotoFor1Pilote = function (pilnum, callback) {
+   // connection à la base
+	db.getConnection(function(err, connexion){
+        if(!err){
+        	  // s'il n'y a pas d'erreur de connexion
+        	  // execution de la requête SQL
+
+						let sql = 'select h.phoadresse from photo h, pilote p where phosujet!="Photo identité" and p.pilnum=h.pilnum and p.pilnum='+pilnum+';';
+            connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+         }
+      });
+};
