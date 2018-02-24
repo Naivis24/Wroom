@@ -50,7 +50,7 @@ module.exports.get1Pilote = function (pilnum, callback) {
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
 
-						let sql = 'select y.paynat, h.phoadresse, p.pilnum, p.paynum, pilnom, pilprenom, DATE_FORMAT(pildatenais, "%d/%m/%Y"), pilpigiste, pilpoints, CONVERT(pilpoids, char) as pilpoids, CONVERT(piltaille, char) as piltaille, piltexte, ecunum from pilote p, photo h, pays y where y.paynum=p.paynum and h.pilnum=p.pilnum and phosujet="Photo identité" and p.pilnum='+pilnum+';';
+						let sql = 'select y.paynat, h.phoadresse, p.pilnum, p.paynum, pilnom, pilprenom, DATE_FORMAT(pildatenais, "%d/%m/%Y"), pilpigiste, pilpoints, CONVERT(pilpoids, char) as pilpoids, CONVERT(piltaille, char) as piltaille, LEFT(piltexte , 282) as piltexte, ecunum from pilote p, photo h, pays y where y.paynum=p.paynum and h.pilnum=p.pilnum and phosujet="Photo identité" and p.pilnum='+pilnum+';';
 						connexion.query(sql, callback);
 
             // la connexion retourne dans le pool
