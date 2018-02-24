@@ -19,7 +19,6 @@ module.exports.getListePiloteLettre = function (callback) {
         	  // execution de la requête SQL
 
 						let sql ="select distinct substring(PILNOM , 1, 1) as lettre from pilote order by lettre;";
-						console.log (sql);
             connexion.query(sql, callback);
 
             // la connexion retourne dans le pool
@@ -36,8 +35,7 @@ module.exports.getListePiloteFor1Letter = function (lettre, callback) {
         	  // execution de la requête SQL
 
 						let sql ='select h.phoadresse, p.pilnum, paynum, pilnom, pilprenom, pildatenais, pilpigiste, pilpoints, pilpoids, piltaille, piltexte, ecunum from pilote p, photo h where h.pilnum=p.pilnum and phosujet="Photo identité" and pilnom like "'+lettre+'%";';
-						console.log (sql);
-            connexion.query(sql, callback);
+						connexion.query(sql, callback);
 
             // la connexion retourne dans le pool
             connexion.release();
@@ -52,8 +50,23 @@ module.exports.get1Pilote = function (pilnum, callback) {
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
 
-						let sql ="select p.pilnum, paynum, pilnom, pilprenom, pildatenais, pilpigiste, pilpoints, pilpoids, piltaille, piltexte, ecunum from pilote where pilnum=;";
-						console.log (sql);
+						let sql = 'select y.paynat, h.phoadresse, p.pilnum, p.paynum, pilnom, pilprenom, DATE_FORMAT(pildatenais, "%d/%m/%Y"), pilpigiste, pilpoints, CONVERT(pilpoids, char) as pilpoids, CONVERT(piltaille, char) as piltaille, piltexte, ecunum from pilote p, photo h, pays y where y.paynum=p.paynum and h.pilnum=p.pilnum and phosujet="Photo identité" and p.pilnum='+pilnum+';';
+						connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+         }
+      });
+};
+
+module.exports.getSponsorFor1Pilote = function (pilnum, callback) {
+   // connection à la base
+	db.getConnection(function(err, connexion){
+        if(!err){
+        	  // s'il n'y a pas d'erreur de connexion
+        	  // execution de la requête SQL
+
+						let sql = 'select r.sponom, r.sposectactivite from pilote p, sponsorise s, sponsor r where p.pilnum=s.pilnum and s.sponum=r.sponum and p.pilnum='+pilnum+';';
             connexion.query(sql, callback);
 
             // la connexion retourne dans le pool

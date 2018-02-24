@@ -1,8 +1,33 @@
-<table class="listenoms">
-	<tr>
-    <td>Cliquez sur une lettre : </td>
-		{{#each listeLettrePilote}}
-			<td><a href ="repertoirePiloteLettre/{{this.lettre}}">{{this.lettre}}</a></td>
-		{{/each}}
-	</tr>
-</table>
+<center>
+	<table class="listenoms">
+		<tr>
+	    <td>Cliquez sur une lettre : </td>
+			{{#each listeLettrePilote}}
+				<td><a href ="../repertoirePiloteLettre/{{this.lettre}}">{{this.lettre}}</a></td>
+			{{/each}}
+		</tr>
+	</table>
+</center>
+
+{{#each lePilote}}
+  <table>
+    <tr>
+        <td><img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}" height="100" width="100"></a>
+        <p><strong>Nom : </strong>{{this.pilnom}} {{this.pilprenom}}</p>
+        <p><strong>Date de naissance : </strong>{{this.pildatenais}}</p>
+        <p><strong>Nationalité : </strong>{{this.paynat}}</p>
+        <p><strong>Poids : </strong>{{this.pilpoids}} Kg</p>
+        <p><strong>Taille : </strong>{{this.piltaille}} Cm</p>
+        <br/>
+        <p><strong>Principaux sponsors : </strong></p>
+        {{#each ../lesSponsors}}
+          <p><strong>{{this.sponom}}</strong> ({{this.sposectactivite}})</p>
+        {{else}}
+          <p>Non renseignée</p>
+        {{/each}}
+        <br/>
+        <p><strong>Qui suis-je ? : </strong>{{this.piltexte}}</p>
+        <!-- les photos -->
+    </tr>
+  </table>
+{{/each}}
