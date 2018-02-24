@@ -35,7 +35,7 @@ module.exports.getListePiloteFor1Letter = function (lettre, callback) {
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
 
-						let sql ='select pilnum, paynum, pilnom, pilprenom, pildatenais, pilpigiste, pilpoints, pilpoids, piltaille, piltexte, ecunum from pilote where substring(pilnom , 1, 1)="'+lettre+'";';
+						let sql ='select h.phoadresse, p.pilnum, paynum, pilnom, pilprenom, pildatenais, pilpigiste, pilpoints, pilpoids, piltaille, piltexte, ecunum from pilote p, photo h where h.pilnum=p.pilnum and phosujet="Photo identité" and pilnom like "'+lettre+'%";';
 						console.log (sql);
             connexion.query(sql, callback);
 
@@ -52,7 +52,7 @@ module.exports.get1Pilote = function (pilnum, callback) {
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
 
-						let sql ="select pilnum, paynum, pilnom, pilprenom, pildatenais, pilpigiste, pilpoints, pilpoids, piltaille, piltexte, ecunum from pilote where pilnum=;";
+						let sql ="select p.pilnum, paynum, pilnom, pilprenom, pildatenais, pilpigiste, pilpoints, pilpoids, piltaille, piltexte, ecunum from pilote where pilnum=;";
 						console.log (sql);
             connexion.query(sql, callback);
 

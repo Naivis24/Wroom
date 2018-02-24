@@ -1,9 +1,10 @@
-<p>Cliquez sur une lettre : <p>
-
-<table class = "listenoms">
-	<tr>
-		{{#each listeLettrePilote}}
-			<td><a href ="./repertoirePilotes/{{this.lettre}}">{{this.lettre}}</a></td>
-		{{/each}}
-	</tr>
-</table>
+<center>
+	<table class="listenoms">
+		<tr>
+	    <td>Cliquez sur une lettre : </td>
+			{{#each listeLettrePilote}}
+				<td><a href ="repertoirePiloteLettre/{{this.lettre}}">{{this.lettre}}</a></td>
+			{{/each}}
+		</tr>
+	</table>
+</center>
