@@ -18,7 +18,14 @@
         <p><strong>Nationalité : </strong>{{this.paynat}}</p>
         <p><strong>Poids : </strong>{{this.pilpoids}} Kg</p>
         <p><strong>Taille : </strong>{{this.piltaille}} Cm</p>
-        <br/>
+
+				{{#each ../lecurie}}
+          <p><strong>Ecurie : </strong>{{this.ecunom}}</p>
+        {{else}}
+          <p>Non renseignée</p>
+        {{/each}}
+
+				<br/>
         <p><strong>Principaux sponsors : </strong></p>
         <!-- Les sponsors -->
         {{#each ../lesSponsors}}
@@ -29,11 +36,25 @@
         <br/>
         <p><strong>Qui suis-je ? : </strong>{{this.piltexte}}</p>
         <!-- les photos -->
+				<center>
         {{#each ../lesPhotos}}
           <img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{../this.pilprenom}} {{../this.pilnom}}" height="100" width="100">
         {{else}}
           <p>Aucune autre image disponible</p>
         {{/each}}
+
     </tr>
   </table>
+
+	{{#each ../laPhoto}}
+		<div style="border-style: solid;">
+			<center>
+				<br/>
+				<img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}">
+				<p>{{this.phosujet}}</p>
+				<p>{{this.phocommentaire}}</p>
+			</center>
+		</div>
+	{{/each}}
+
 {{/each}}
