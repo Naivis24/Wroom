@@ -26,6 +26,9 @@ module.exports = function(app){
 // Ecuries
    app.get('/ecuries', EcurieController.ListerEcurie);
 
+  // ecuries d'un pays
+   app.get('/ecuriesDunPays/:paynum', EcurieController.ListerEcurieFor1Pays);
+
  //Résultats
    app.get('/resultats', ResultatController.ListerResultat);
 
