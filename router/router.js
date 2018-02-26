@@ -14,14 +14,17 @@ module.exports = function(app){
 // pilotes
     app.get('/repertoirePilote', PiloteController.Repertoire);
 
-// pilotes pour une lettre
-    app.get('/repertoirePiloteLettre/:lettre', PiloteController.LettrePilote);
+	// pilotes pour une lettre
+	    app.get('/repertoirePiloteLettre/:lettre', PiloteController.LettrePilote);
 
-// details sur un pilote
-    app.get('/detailsPilote/:pilnum', PiloteController.DetailsSurUnPilote)
+	// details sur un pilote
+	    app.get('/detailsPilote/:pilnum', PiloteController.DetailsSurUnPilote)
 
  // circuits
    app.get('/circuits', CircuitController.ListerCircuit);
+
+   //détails d'un circuit
+   app.get('/circuits/:cirnum', CircuitController.getInfosCircuit);
 
 // Ecuries
    app.get('/ecuries', EcurieController.ListerEcurie);

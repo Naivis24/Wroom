@@ -15,3 +15,17 @@ module.exports.ListerCircuit = function(request, response){
 
     });
 }
+
+module.exports.DetailsSurUnCircuit = function(request, response){
+  var data = request.params.cirnum;
+  response.title = 'Détails sur le circuit';
+
+    model.getInfosCircuit( function (err, result) {
+      if (err) {
+          // gestion de l'erreur
+          console.log(err);
+          return;
+      }
+      response.listeInfosCircuit = result;
+  });
+}
