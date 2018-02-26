@@ -35,6 +35,7 @@ module.exports.LettrePilote = function (request, response){
           return;
       }
       response.listePilotes = result;
+      console.log(response.listePilotes);
       response.render('repertoirePilotesLettre', response);
 });
 }
@@ -50,7 +51,7 @@ module.exports.DetailsSurUnPilote = function (request, response){
           return;
       }
       response.listeLettrePilote = result;
-});
+  });
 
   model.getSponsorFor1Pilote(data, function (err, result) {
       if (err) {
@@ -60,7 +61,7 @@ module.exports.DetailsSurUnPilote = function (request, response){
       }
       response.lesSponsors = result;
       console.log(response.lesSponsors);
-});
+  });
 
   model.getPhotoFor1Pilote(data, function (err, result) {
       if (err) {
@@ -69,7 +70,25 @@ module.exports.DetailsSurUnPilote = function (request, response){
           return;
       }
       response.lesPhotos = result;
-});
+  });
+
+  model.get1PhotoFor1Pilote(data, function (err, result) {
+      if (err) {
+          // gestion de l'erreur
+          console.log(err);
+          return;
+      }
+      response.laPhoto = result;
+  });
+
+  model.get1EcurieFor1Pilote(data, function (err, result) {
+      if (err) {
+          // gestion de l'erreur
+          console.log(err);
+          return;
+      }
+      response.lecurie = result;
+  });
 
   model.get1Pilote(data, function (err, result) {
       if (err) {
@@ -78,6 +97,7 @@ module.exports.DetailsSurUnPilote = function (request, response){
           return;
       }
       response.lePilote = result;
+      console.log(response.lePilote);
       response.render('detailsPilote', response);
-});
+  });
 }

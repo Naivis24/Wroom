@@ -34,7 +34,7 @@ module.exports.getListePiloteFor1Letter = function (lettre, callback) {
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
 
-						let sql ='select h.phoadresse, p.pilnum, paynum, pilnom, pilprenom, pildatenais, pilpigiste, pilpoints, pilpoids, piltaille, piltexte, ecunum from pilote p, photo h where h.pilnum=p.pilnum and phosujet="Photo identité" and pilnom like "'+lettre+'%";';
+						let sql ='select h.phoadresse, p.pilnum, paynum, pilnom, pilprenom, pildatenais, pilpigiste, pilpoints, pilpoids, piltaille, piltexte, ecunum from pilote p, photo h where h.pilnum=p.pilnum and phonum=1 and pilnom like "'+lettre+'%";';
 						connexion.query(sql, callback);
 
             // la connexion retourne dans le pool
@@ -50,7 +50,7 @@ module.exports.get1Pilote = function (pilnum, callback) {
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
 
-						let sql = 'select y.paynat, h.phoadresse, p.pilnum, p.paynum, pilnom, pilprenom, DATE_FORMAT(pildatenais, "%d/%m/%Y"), pilpigiste, pilpoints, CONVERT(pilpoids, char) as pilpoids, CONVERT(piltaille, char) as piltaille, LEFT(piltexte , 282) as piltexte, ecunum from pilote p, photo h, pays y where y.paynum=p.paynum and h.pilnum=p.pilnum and phosujet="Photo identité" and p.pilnum='+pilnum+';';
+						let sql = 'select y.paynat, h.phoadresse, p.pilnum, p.paynum, pilnom, pilprenom, DATE_FORMAT(pildatenais, "%d/%m/%Y"), pilpigiste, pilpoints, CONVERT(pilpoids, char) as pilpoids, CONVERT(piltaille, char) as piltaille, LEFT(piltexte , 282) as piltexte, ecunum from pilote p, photo h, pays y where y.paynum=p.paynum and h.pilnum=p.pilnum and phonum=1 and p.pilnum='+pilnum+';';
 						connexion.query(sql, callback);
 
             // la connexion retourne dans le pool
@@ -82,7 +82,39 @@ module.exports.getPhotoFor1Pilote = function (pilnum, callback) {
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
 
-						let sql = 'select h.phoadresse from photo h, pilote p where phosujet!="Photo identité" and p.pilnum=h.pilnum and p.pilnum='+pilnum+';';
+						let sql = 'select h.phoadresse from photo h, pilote p where phonum!=1 and p.pilnum=h.pilnum and p.pilnum='+pilnum+';';
+            connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+         }
+      });
+};
+
+module.exports.get1PhotoFor1Pilote = function (pilnum, callback) {
+   // connection à la base
+	db.getConnection(function(err, connexion){
+        if(!err){
+        	  // s'il n'y a pas d'erreur de connexion
+        	  // execution de la requête SQL
+
+						let sql = 'select phoadresse, phosujet, phocommentaire from photo where phonum!=1 and pilnum='+pilnum+' order by phosujet desc limit 1;';
+            connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+         }
+      });
+};
+
+module.exports.get1EcurieFor1Pilote = function (pilnum, callback) {
+   // connection à la base
+	db.getConnection(function(err, connexion){
+        if(!err){
+        	  // s'il n'y a pas d'erreur de connexion
+        	  // execution de la requête SQL
+
+						let sql = 'select ecunom from ecurie e, pilote p where p.ecunum=e.ecunum and p.pilnum='+pilnum+';';
             connexion.query(sql, callback);
 
             // la connexion retourne dans le pool
