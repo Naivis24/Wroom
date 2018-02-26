@@ -10,8 +10,7 @@ module.exports.ListerCircuit = function(request, response){
             console.log(err);
             return;
         }
-  		response.listeDesCircuit = result;
-  		console.log(response.listeDesCircuit);
+  		response.listeDesCircuits = result;
     	response.render('listerCircuit', response);
 
     });
