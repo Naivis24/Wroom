@@ -30,7 +30,7 @@ module.exports = function(app){
    app.get('/ecuries', EcurieController.ListerEcurie);
 
   // ecuries d'un pays
-   app.get('/ecuriesDunPays/:paynum', EcurieController.ListerEcurieFor1Pays);
+   app.get('/detailEcurie/:ecunum', EcurieController.ListerEcurieFor1Pays);
 
  //Résultats
    app.get('/resultats', ResultatController.ListerResultat);

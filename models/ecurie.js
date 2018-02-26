@@ -27,3 +27,51 @@ module.exports.getListeEcurie = function (callback) {
          }
       });
 };
+
+module.exports.getListeEcurieFor1Pays = function (ecunum, callback) {
+   // connection à la base
+	db.getConnection(function(err, connexion){
+        if(!err){
+        	  // s'il n'y a pas d'erreur de connexion
+        	  // execution de la requête SQL
+						let sql ="select ecunom, ecunomdir, ecuadrsiege, ecuadresseimage, paynom from ecurie e, pays p where p.paynum=e.paynum and e.ecunum="+ecunum;
+						//console.log (sql);
+            connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+         }
+      });
+};
+
+module.exports.getListePilotesFor1Ecurie = function (ecunum, callback) {
+   // connection à la base
+	db.getConnection(function(err, connexion){
+        if(!err){
+        	  // s'il n'y a pas d'erreur de connexion
+        	  // execution de la requête SQL
+						let sql ="select pilnom, pilprenom, pilnum from pilote where ecunum="+ecunum;
+						//console.log (sql);
+            connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+         }
+      });
+};
+
+module.exports.getListeVoitureFor1Ecurie = function (ecunum, callback) {
+   // connection à la base
+	db.getConnection(function(err, connexion){
+        if(!err){
+        	  // s'il n'y a pas d'erreur de connexion
+        	  // execution de la requête SQL
+						let sql ="select voinom, voiadresseimage, typelibelle from voiture v, type_voiture t where v.typnum=t.typnum and ecunum="+ecunum;
+						//console.log (sql);
+            connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+         }
+      });
+};

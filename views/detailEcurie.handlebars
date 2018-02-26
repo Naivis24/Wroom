@@ -1,0 +1,31 @@
+<table class="tabpayscir">
+	 {{#each listeEcurie}}
+		<tr><td><img src="/image/pays/{{this.payadrdrap}}" alt="drapeau du pays" />
+      <a href="/detailEcurie/{{this.ecunum}}"> {{this.ecunom}}</a>
+    </td></tr>
+ {{/each}}
+</table>
+<br class="myboth" />
+
+<table>
+	 {{#each detail1Ecurie}}
+    <img src="/image/ecurie/{{this.ecuadresseimage}}" alt="drapeau de l'écurie {{this.ecunom}}" />
+    <p><strong>Nom : </strong>{{this.ecunom}}</p>
+    <p><strong>Directeur : </strong>{{this.ecunomdir}}</p>
+    <p><strong>Adresse : </strong>{{this.ecuadrsiege}}</p>
+    <p><strong>Pays : </strong>{{this.paynom}}</p>
+
+    <!--
+    Championnats
+    -->
+ {{/each}}
+</table>
+
+<p><strong>Pilotes :</strong></p>
+{{#each listePilotes}}
+  <a href="../detailsPilote/{{this.pilnum}}">{{this.pilprenom}} {{this.pilnom}}</a>
+{{/each}}
+
+{{#each listeVoitures}}
+
+{{/each}}
