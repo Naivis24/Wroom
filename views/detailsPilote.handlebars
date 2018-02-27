@@ -12,12 +12,20 @@
 {{#each lePilote}}
   <table>
     <tr>
-        <td><img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}" height="100" width="100"></a>
-        <p><strong>Nom : </strong>{{this.pilnom}} {{this.pilprenom}}</p>
-        <p><strong>Date de naissance : </strong>{{this.pildatenais}}</p>
-        <p><strong>Nationalité : </strong>{{this.paynat}}</p>
-        <p><strong>Poids : </strong>{{this.pilpoids}} Kg</p>
-        <p><strong>Taille : </strong>{{this.piltaille}} Cm</p>
+      <td><img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}" height="100" width="100"></a></td>
+      <td><p><strong>Nom : </strong>{{this.pilnom}} {{this.pilprenom}}</p></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><p><strong>Date de naissance : </strong>{{this.pildatenais}}</p></td>
+			<td><p><strong>Poids : </strong>{{this.pilpoids}} Kg</p></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><p><strong>Nationalité : </strong>{{this.paynat}}</p></td>
+			<td><p><strong>Taille : </strong>{{this.piltaille}} Cm</p></td>
+		</tr>
+	<table>
 
 				{{#each ../lecurie}}
           <p><strong>Ecurie : </strong>{{this.ecunom}}</p>
@@ -47,14 +55,16 @@
   </table>
 
 	{{#each ../laPhoto}}
-		<div style="border-style: solid;">
-			<center>
-				<br/>
-				<img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}">
-				<p>{{this.phosujet}}</p>
-				<p>{{this.phocommentaire}}</p>
-			</center>
-		</div>
+		<center>
+			<ul style="border-style: solid;list-style: none;">
+				<li><img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}"></li>
+				<li><p>{{this.phosujet}}</p></li>
+				<li><p>{{this.phocommentaire}}</p></li>
+			</ul>
+
+
+
+		</center>
 	{{/each}}
 
 {{/each}}

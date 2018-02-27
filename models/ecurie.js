@@ -50,7 +50,7 @@ module.exports.getListePilotesFor1Ecurie = function (ecunum, callback) {
         if(!err){
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
-						let sql ="select  , pilprenom, pilnum from pilote where ecunum="+ecunum;
+						let sql ="select pilprenom, pilnom from pilote where ecunum="+ecunum;
 						//console.log (sql);
             connexion.query(sql, callback);
 

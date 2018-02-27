@@ -14,18 +14,31 @@
     <p><strong>Directeur : </strong>{{this.ecunomdir}}</p>
     <p><strong>Adresse : </strong>{{this.ecuadrsiege}}</p>
     <p><strong>Pays : </strong>{{this.paynom}}</p>
-
-    <!--
-    Championnats
-    -->
  {{/each}}
 </table>
 
-<p><strong>Pilotes :</strong></p>
+
 {{#each listePilotes}}
+	{{#if @first}}
+		<p><strong>Pilote : </strong></p>
+	{{/if}}
+
   <a href="../detailsPilote/{{this.pilnum}}">{{this.pilprenom}} {{this.pilnom}}</a>
+	<br/>
+{{else}}
+	<p>Cette écurie ne participe pas au championnat cette année.</p>
 {{/each}}
 
-{{#each listeVoitures}}
-
-{{/each}}
+<table>
+	<tr>
+		{{#each listeVoitures}}
+			<td>
+				<ul style="list-style: none;">
+					<li><img src="/image/ecurie/voiture/{{this.voiadresseimage}}" alt="drapeau de la voiture {{this.voinom}}" height="100" width="100"/></li>
+					<li>{{this.voinom}}</li>
+					<li>{{this.typelibelle}}</li>
+				</ul>
+			</td>
+		{{/each}}
+	</tr>
+</table>
