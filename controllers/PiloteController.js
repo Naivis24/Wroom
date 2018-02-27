@@ -35,7 +35,6 @@ module.exports.LettrePilote = function (request, response){
           return;
       }
       response.listePilotes = result;
-      console.log(response.listePilotes);
       response.render('repertoirePilotesLettre', response);
 });
 }
@@ -60,7 +59,6 @@ module.exports.DetailsSurUnPilote = function (request, response){
           return;
       }
       response.lesSponsors = result;
-      console.log(response.lesSponsors);
   });
 
   model.getPhotoFor1Pilote(data, function (err, result) {
@@ -97,7 +95,6 @@ module.exports.DetailsSurUnPilote = function (request, response){
           return;
       }
       response.lePilote = result;
-      console.log(response.lePilote);
       response.render('detailsPilote', response);
   });
 }

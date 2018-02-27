@@ -15,8 +15,8 @@ module.exports.getListeCircuits = function(callback){
 module.exports.getInfosCircuit = function(cirnum, callback){
 	db.getConnection(function(err, connexion){
 		if(!err){
-			let sql = "select cirnom, cirlongueur, cirnbspectateurs, paynom, cirtext from circuit c, pays p where c.paynum = p.PAYNUM and c.cirnum = "+cinum;
-
+			let sql = "select cirnom, cirlongueur, cirnbspectateurs, paynom, cirtext from circuit c, pays p where c.paynum = p.PAYNUM and c.cirnum = "+cirnum;
+			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();
 		}

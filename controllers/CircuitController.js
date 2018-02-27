@@ -12,7 +12,6 @@ module.exports.ListerCircuit = function(request, response){
         }
   		response.listeDesCircuits = result;
     	response.render('listerCircuit', response);
-
     });
 }
 
@@ -20,12 +19,23 @@ module.exports.DetailsSurUnCircuit = function(request, response){
   var data = request.params.cirnum;
   response.title = 'Détails sur le circuit';
 
-    model.getInfosCircuit( function (err, result) {
+  model.getListeCircuits( function(err, result){
+      if (err) {
+          // gestion de l'erreur
+          console.log(err);
+          return;
+      }
+    response.listeDesCircuits = result;
+  });
+
+    model.getInfosCircuit(data, function (err, result) {
       if (err) {
           // gestion de l'erreur
           console.log(err);
           return;
       }
       response.listeInfosCircuit = result;
+      console.log(response.listeInfosCircuit);
+      response.render('listerCircuit', response);
   });
 }
