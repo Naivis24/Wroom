@@ -36,6 +36,7 @@ module.exports.DetailsSurUnCircuit = function(request, response){
       }
       response.listeInfosCircuit = result;
       console.log(response.listeInfosCircuit);
-      response.render('listerCircuit', response);
+      response.render('detailsCircuit', response);
   });
 }
+ 

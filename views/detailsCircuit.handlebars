@@ -9,3 +9,22 @@
  {{/each}}
 </table>
 <br class="myboth" />
+
+
+{{#each listeInfosCircuit}}
+  <table>
+    <tr>
+        <td><img src="/image/circuit/{{this.ciradresseimage}}" alt="Photo de {{this.cirnom}}" height="100" width="100"></a>
+        <p><strong>Nom : </strong>{{this.cirnom}}</p>
+        <p><strong>Longueur : </strong>{{this.cirlongueur}}</p>
+        <p><strong>Nombre de spectateurs : </strong>{{this.cirnbspectateurs}}</p>
+        <p><strong>Pays : </strong>{{this.paynom}}</p>
+
+
+        <p>{{this.cirtext}}</p>
+
+       
+
+    </tr>
+  </table>
+ {{/each}}
