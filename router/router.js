@@ -35,6 +35,9 @@ module.exports = function(app){
  //Résultats
    app.get('/resultats', ResultatController.ListerResultat);
 
+   //détails résultats
+   app.get('/detailsResultat:/gpnum', ResultatController.ListerResultat);
+
 
 // tout le reste
   app.get('*', HomeController.Index);
