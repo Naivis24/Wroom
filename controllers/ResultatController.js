@@ -15,3 +15,20 @@ module.exports.ListerResultat = function(request, response){
 	response.render('listerResultat', response);
 });
 }
+
+module.exports.ResutatGrandPrix = function(request, response){
+  var data = request.params.gpnum;
+  response.title = 'Détails sur les résulats';
+
+    model.getResultatGP(data, function (err, result) {
+      if (err) {
+          // gestion de l'erreur
+          console.log(err);
+          return;
+      }
+      response.resulat = result;
+      console.log(response.resultat);
+      response.render('detailsResultat', response);
+  });
+}
+ 
