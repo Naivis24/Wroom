@@ -23,7 +23,8 @@
 		<p><strong>Pilote : </strong></p>
 	{{/if}}
 
-  <a href="../detailsPilote/{{this.pilnum}}">{{this.pilprenom}} {{this.pilnom}}</a>
+  <a href="../detailsPilote/{{this.pilnum}}">{{this.pilprenom}} {{this.pilnom}}
+	<span><img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}" height="100" width="100"></span></a>
 	<br/>
 {{else}}
 	<p>Cette écurie ne participe pas au championnat cette année.</p>
