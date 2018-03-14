@@ -38,3 +38,4 @@ module.exports.DetailsSurUnCircuit = function(request, response){
       response.render('detailsCircuit', response);
   });
 }
+ 
