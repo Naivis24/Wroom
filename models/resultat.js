@@ -27,6 +27,14 @@ module.exports.getResultatGP = function(gpnum, callback){
 	});
 };
 /*
+SELECT c.*, p.PILNOM, p.PILPRENOM,
+       @rownum := @rownum + 1 AS Place, CASE @rownum WHEN  1 then 25 WHEN  2 then 18 WHEN  3 then 15 WHEN  4 then 12 WHEN 5 then 10 WHEN  6 then 8 WHEN  7 then 6 WHEN 8 then 4 WHEN 9 then 2 WHEN 10 then 1 ELSE 0 END AS Points
+  FROM course c, pilote p,
+       (SELECT @rownum := 0) r
+       WHERE p.PILNUM=c.PILNUM AND c.GPNUM=1
+       ORDER BY c.TEMPSCOURSE
+*/
+/*
 SET @rank=0;
 SELECT t.gpcommentaire, t.pilnom, t.pilprenom, t.gpnum, t.tempscourse, p.ptnbpointsplace
 FROM points p, (SELECT gpcommentaire, pilnom, pilprenom, gp.gpnum, tempscourse, @rank:=@rank+1 AS rank

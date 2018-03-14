@@ -8,10 +8,10 @@ let express         = require('express'),
 let app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('port', 6900);
-app.set('views', path.join(__dirname, 'admin/views'));
+app.set('views', path.join(__dirname, 'views'));
 
 // routes static, le routeur n'y aura pas accès
-app.use(express.static(path.join(__dirname+ '/public')));
+app.use(express.static('../public'));
 app.use(cookieParser());
 app.use(session({
     secret: 'nC0@#1pM/-0qA1+é',
@@ -31,14 +31,11 @@ app.use(function(request, response, next){
 */
 var exphbs = require('express-handlebars');
 app.set('view engine', 'handlebars'); //nom de l'extension des fichiers
-var handlebars  = exphbs.create({defaultLayout: 'main2'}); //emplacement des helpers
+var handlebars  = require('./helpers/handlebars.js')(exphbs); //emplacement des helpers
 // helpers : ajouts de fonctionnalités pour handlebars
 app.engine('handlebars', handlebars.engine);
-
-
-
 // chargement du routeur
-require('./admin/router/router')(app);
+require('./router/router')(app);
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Serveur Node.js en attente sur le port ' + app.get('port'));
 });
