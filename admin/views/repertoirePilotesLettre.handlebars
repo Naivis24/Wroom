@@ -1,0 +1,24 @@
+<center>
+	<table class="listenoms">
+		<tr>
+	    <td>Cliquez sur une lettre : </td>
+			{{#each listeLettrePilote}}
+				<td><a href="../repertoirePiloteLettre/{{this.lettre}}">{{this.lettre}}</a></td>
+			{{/each}}
+		</tr>
+	</table>
+</center>
+
+<center>
+	<table>
+	  <tr>
+			{{#each listePilotes}}
+				<td><a href="../detailsPilote/{{this.pilnum}}"><img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}" height="100" width="100"></a>
+				<br/>
+				<a href="../detailsPilote/{{this.pilnum}}">{{this.pilprenom}}</a>
+				<br/>
+				<a href="../detailsPilote/{{this.pilnum}}">{{this.pilnom}}</a></td>
+			{{/each}}
+		</tr>
+	</table>
+</center>

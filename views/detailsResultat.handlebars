@@ -1,10 +1,28 @@
- <h1>Liste des résulats</h1>
- 
+ <h1>Liste des résultats</h1>
+
  <table class="tabpayscir">
 	 {{#each listeDesPrix}}
 		<tr><td><img src="/image/pays/{{this.payadrdrap}}" alt="drapeau du pays" width="50" height="50" />
-      <a href="../detailResultat/{{this.gpnum}}"> {{this.gpnom}}</a>
+      <a href="../detailsResultat/{{this.gpnum}}"> {{this.gpnom}}</a>
     </td></tr>
  {{/each}}
 </table>
 <br class="myboth" />
+
+<table>
+  <tr>
+    <th>Place</th>
+    <th>Pilote</th>
+    <th>Temps</th>
+    <th>Nb points</th>
+  </tr>
+  {{#each resulatGP}}
+  <tr>
+    <td style="border: 1px solid black;">{{inc @index}}</td>
+    <td style="border: 1px solid black;">{{this.pilprenom}} {{pilnom}}</td>
+    <td style="border: 1px solid black;">{{this.tempscourse}}</td>
+    <td style="border: 1px solid black;">25</td>
+  </tr>
+
+  {{/each}}
+</table>

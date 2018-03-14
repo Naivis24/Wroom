@@ -12,7 +12,7 @@
 {{#each lePilote}}
   <table>
     <tr>
-      <td><img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}" height="100" width="100"></a></td>
+      <td><img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}" height="100" width="100"></td>
       <td><p><strong>Nom : </strong>{{this.pilnom}} {{this.pilprenom}}</p></td>
 		</tr>
 		<tr>
@@ -46,7 +46,9 @@
         <!-- les photos -->
 				<center>
         {{#each ../lesPhotos}}
+					<a href="/image/pilote/{{this.phoadresse}}" rel="lytebox[vacation]" title="{{this.phosujet}} : {{this.phocommentaire}}">
           <img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{../this.pilprenom}} {{../this.pilnom}}" height="100" width="100">
+					</a>
         {{else}}
           <p>Aucune autre image disponible</p>
         {{/each}}
@@ -61,9 +63,6 @@
 				<li><p>{{this.phosujet}}</p></li>
 				<li><p>{{this.phocommentaire}}</p></li>
 			</ul>
-
-
-
 		</center>
 	{{/each}}
 
