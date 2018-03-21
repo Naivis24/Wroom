@@ -15,12 +15,14 @@ module.exports = function(app){
     app.post('/', ConnexionController.SeConnecter);
 
 //pilotes
-	app.get('/listePilotes', PiloteController.listeAllPilotes);
+    app.get('/listePilotes', PiloteController.listeAllPilotes);
+    app.get('/ajouterPilotes', PiloteController.nouveauPilote);
+    app.post('/ajouterPilotes', PiloteController.ajouterPilote);
 
 
 
-// tout le reste
-app.get('*', HomeController.Index);
-app.post('*', HomeController.Index);
+  // tout le reste
+  app.get('*', HomeController.Index);
+  app.post('*', HomeController.Index);
 
 };

@@ -136,3 +136,30 @@ module.exports.getAllPilotes = function (callback) {
          }
       });
 };
+
+module.exports.getAllNatio = function (callback) {
+
+  db.getConnection(function(err, connexion){
+        if(!err){
+
+            let sql = 'select paynum, paynat from pays';
+            connexion.query(sql, callback);
+
+            connexion.release();
+         }
+      });
+};
+
+module.exports.ajouterPilote = function (pre, nom, jour, mois, annee, points, poids, taille, description, natio, ecurie, callback) {
+
+  db.getConnection(function(err, connexion){
+        if(!err){
+
+            let sql = 'INSERT INTO pilote(pilnom, pilprenom, pildatenais, pilpoints, pilpoids, piltaille, piltexte, paynum, ecunum) VALUES("'+nom+'", "'+pre+'", "'+annee+"-"+mois+"-"+jour+'", '+points+','+poids+','+taille+', "'+description+'", '+natio+', '+ecurie+');';
+						console.log(sql);
+            connexion.query(sql, callback);
+
+            connexion.release();
+         }
+      });
+};

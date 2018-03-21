@@ -1,0 +1,59 @@
+<center><h2>Ajouter un pilote</h2></center>
+<form method="post">
+  <table>
+    <tr>
+      <td><label>Prénom :</label></td>
+      <td><input type="text" id="pre" name="pre" required/></td>
+    </tr>
+    <tr>
+      <td><label>Nom :</label></td>
+      <td><input type="text" id="nom" name="nom" required/></td>
+    </tr>
+    <tr>
+      <td><label>Date de naissance :</label></td>
+      <td><input type="text" id="jour" name="jour" required/></td>
+      <td><label> / </label></td>
+      <td><input type="text" id="mois" name="mois" required/></td>
+      <td><label> / </label></td>
+      <td><input type="text" id="annee" name="annee" required/></td>
+    </tr>
+    <tr>
+      <td><label>Nationalité :</label></td>
+      <td>
+        <select id="natio" name="natio" required>
+          {{#each listeNatio}}
+            <option value="{{this.paynum}}">{{this.paynat}}</option>
+          {{/each}}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Ecurie :</label></td>
+      <td>
+        <select id="ecurie" name="ecurie" required>
+          {{#each listeEcurie}}
+            <option value="{{this.ecunum}}">{{this.ecunom}}</option>
+          {{/each}}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Points :</label></td>
+      <td><input type="number" id="points" name="points" required/></td>
+    </tr>
+    <tr>
+      <td><label>Poids :</label></td>
+      <td><input type="number" id="poids" name="poids" required/></td>
+    </tr>
+    <tr>
+      <td><label>Taille :</label></td>
+      <td><input type="number" id="taille" name="taille" required/></td>
+    </tr>
+    <tr>
+      <td><label>Description :</label></td>
+      <td><input type="textarea" id="description" name="description" style="height:50px;width:200px" required/></td>
+    </tr>
+  </table>
+
+  <input type="submit" name="Valider" value="Valider"/>
+</form>
