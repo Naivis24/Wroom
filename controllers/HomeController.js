@@ -8,13 +8,14 @@ module.exports.Index = function(request, response){
 
 module.exports.GetDernierResultat = function(request, response){
     response.title = 'Dernier Resultat';
-    model.GetDernierResultat( function(err, result){
+    model.getDernierResultat( function(err, result){
         if (err) {
             // gestion de l'erreur
             console.log(err);
             return;
         }
   		response.dernierresultat = result;
-    	response.render('listerCircuit', response);
+  		console.log(dernierresultat);
+    	response.render('home', response);
     });
 }

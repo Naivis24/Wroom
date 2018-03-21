@@ -38,6 +38,9 @@ module.exports = function(app){
    //détails résultats
    app.get('/detailsResultat/:gpnum', ResultatController.ResultatGrandPrix);
 
+ //Home
+   app.get('/accueil', HomeController.GetDernierResultat);
+
 
 // tout le reste
   app.get('*', HomeController.Index);
