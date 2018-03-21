@@ -16,9 +16,6 @@ module.exports = function(app){
 
 
 
-
-
-
 // tout le reste
 app.get('*', HomeController.Index);
 app.post('*', HomeController.Index);
