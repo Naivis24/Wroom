@@ -1,4 +1,4 @@
-let model = require('../../models/circuit.js');
+let model = require('../models/circuit.js');
 
 // ////////////////////// L I S T E R     C I R C U I T S
 
@@ -38,3 +38,4 @@ module.exports.DetailsSurUnCircuit = function(request, response){
       response.render('detailsCircuit', response);
   });
 }
+ 

@@ -45,7 +45,6 @@ module.exports.ResultatGrandPrix = function(request, response){
           return;
       }
       response.resulatGP = result;
-			console.log(response.resulatGP);
 			response.render('detailsResultat', response);
   });
 }

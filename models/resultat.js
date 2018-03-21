@@ -15,11 +15,12 @@ module.exports.getListePrix = function(callback){
 module.exports.getResultatGP = function(gpnum, callback){
 	db.getConnection(function(err, connexion){
 		if(!err){
-			let sql = "SELECT gpcommentaire, pilnom, pilprenom, gp.gpnum, tempscourse\n";
-			sql = sql + "FROM pilote p, course c, grandprix gp\n";
-			sql = sql + "WHERE gp.GPNUM=c.GPNUM and p.PILNUM = c.PILNUM and c.GPNUM="+gpnum+"\n";
-			sql = sql + "ORDER BY tempscourse;\n";
-			console.log(sql);
+			let sql = "SELECT c.*, p.pilnom, p.pilprenom, tempscourse,";
+      sql = sql + " @rownum := @rownum + 1 AS Place, CASE @rownum WHEN  1 then 25 WHEN  2 then 18 WHEN  3 then 15 WHEN  4 then 12 WHEN 5 then 10 WHEN  6 then 8 WHEN  7 then 6 WHEN 8 then 4 WHEN 9 then 2 WHEN 10 then 1 ELSE 0 END AS Points";
+  		sql = sql + " FROM course c, pilote p,";
+      sql = sql + " (SELECT @rownum := 0) r";
+      sql = sql + " WHERE p.pilnum=c.pilnum AND c.gpnum="+gpnum;
+      sql = sql + " ORDER BY c.tempscourse";
 
 			connexion.query(sql, callback);
 			connexion.release();
