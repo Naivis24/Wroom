@@ -3,11 +3,6 @@ let model = require('../../models/connexion.js');
    // //////////////////////// L I S T E R  E C U R I E S
 
 module.exports.SeConnecter = function(request, response){
-   response.title = 'Connexion';
-   response.render('authentification', response);
-}
-
-module.exports.estConnecte = function(request, response){
   var login = request.body.login;
   var passwd = request.body.mdp;
   console.log("login : "+login);
@@ -23,9 +18,9 @@ module.exports.estConnecte = function(request, response){
     console.log(response.login);
     if (result != "") {
       request.session.authenticated = true;
-      response.render('authentifie', response);
+      response.render('home', response);
     } else {
-      response.render('authentifie', response);
+      response.render('home', response);
     }
     console.log(request.session.authenticated);
   });
