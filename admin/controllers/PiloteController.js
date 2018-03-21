@@ -98,3 +98,15 @@ module.exports.DetailsSurUnPilote = function (request, response){
       response.render('detailsPilote', response);
   });
 }
+
+module.exports.listeAllPilotes = function (request, response){
+  model.getAllPilotes(function (err, result) {
+      if (err) {
+          // gestion de l'erreur
+          console.log(err);
+          return;
+      }
+      response.listeAllPilotes = result;
+      response.render('listePilotes', response);
+});
+}

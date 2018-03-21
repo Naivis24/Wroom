@@ -1,0 +1,20 @@
+<h1>Gestion des pilotes</h1>
+
+<a href="#" >Ajouter un pilote</a>
+
+<table>
+	<tr>
+		<td>Nom</td>
+		<td>Prénom</td>
+		<td>Date de Naissance</td>
+		<td>Actions</td>
+	</tr>
+	{{#each listeAllPilotes}}
+		<tr>
+			<td>{{this.pilnom}}</td>
+			<td>{{this.pilprenom}}</td>
+			<td>{{this.pilanniv}}</td>
+			<td><img src="/image/act_edit.png"><a href="#">Modifier</a> <img src="/image/act_delete.png"><a href="#">Supprimer</a></td>
+		</tr>
+	{{/each}}
+</table>
