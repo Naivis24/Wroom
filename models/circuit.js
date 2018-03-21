@@ -22,4 +22,18 @@ module.exports.getInfosCircuit = function(cirnum, callback){
 		}
 	});
 
-}; 
+};
+
+module.exports.ajouterCircuit = function(nom, long, pays, nbPers, description, img, callback){
+	db.getConnection(function(err, connexion){
+		if(!err){
+			let sql = "INSERT INTO circuit(paynum, cirnom, cirlongueur, cirnbspectateurs, cirtext, ciradresseimage)";
+			sql += "VALUES("+pays+', "'+nom+'", '+long+', '+nbPers+', "'+description+'", "'+img+'")';
+			console.log(sql);
+
+			connexion.query(sql, callback);
+			connexion.release();
+		}
+	});
+
+};

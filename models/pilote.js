@@ -142,7 +142,7 @@ module.exports.getAllNatio = function (callback) {
   db.getConnection(function(err, connexion){
         if(!err){
 
-            let sql = 'select paynum, paynat from pays';
+            let sql = 'select paynum, paynat, paynom from pays';
             connexion.query(sql, callback);
 
             connexion.release();

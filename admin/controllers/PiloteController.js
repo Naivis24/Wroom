@@ -15,91 +15,6 @@ module.exports.Repertoire = function(request, response){
         response.render('repertoirePilotes', response);
 });
 }
-/*
-module.exports.LettrePilote = function (request, response){
-  var data = request.params.lettre;
-  response.title = 'Pilotes pour la lettre '+data;
-
-  model.getListePiloteLettre( function (err, result) {
-      if (err) {
-          // gestion de l'erreur
-          console.log(err);
-          return;
-      }
-      response.listeLettrePilote = result;
-});
-
-  model.getListePiloteFor1Letter(data, function (err, result) {
-      if (err) {
-          // gestion de l'erreur
-          console.log(err);
-          return;
-      }
-      response.listePilotes = result;
-      response.render('repertoirePilotesLettre', response);
-});
-}
-
-module.exports.DetailsSurUnPilote = function (request, response){
-  var data = request.params.pilnum;
-  response.title = 'Détails sur le pilote';
-
-  model.getListePiloteLettre( function (err, result) {
-      if (err) {
-          // gestion de l'erreur
-          console.log(err);
-          return;
-      }
-      response.listeLettrePilote = result;
-  });
-
-  model.getSponsorFor1Pilote(data, function (err, result) {
-      if (err) {
-          // gestion de l'erreur
-          console.log(err);
-          return;
-      }
-      response.lesSponsors = result;
-  });
-
-  model.getPhotoFor1Pilote(data, function (err, result) {
-      if (err) {
-          // gestion de l'erreur
-          console.log(err);
-          return;
-      }
-      response.lesPhotos = result;
-  });
-
-  model.get1PhotoFor1Pilote(data, function (err, result) {
-      if (err) {
-          // gestion de l'erreur
-          console.log(err);
-          return;
-      }
-      response.laPhoto = result;
-  });
-
-  model.get1EcurieFor1Pilote(data, function (err, result) {
-      if (err) {
-          // gestion de l'erreur
-          console.log(err);
-          return;
-      }
-      response.lecurie = result;
-  });
-
-  model.get1Pilote(data, function (err, result) {
-      if (err) {
-          // gestion de l'erreur
-          console.log(err);
-          return;
-      }
-      response.lePilote = result;
-      response.render('detailsPilote', response);
-  });
-}
-*/
 
 module.exports.listeAllPilotes = function (request, response){
   response.title = "Pilote existant";
@@ -150,9 +65,6 @@ module.exports.ajouterPilote = function (request, response){
       var poids = request.body.poids;
       var taille = request.body.taille;
       var description = request.body.description;
-
-      console.log(natio);
-      console.log(ecurie);
 
       model.ajouterPilote(pre, nom, jour, mois, annee, points, poids, taille, description, natio, ecurie, function (err, result) {
           if (err) {

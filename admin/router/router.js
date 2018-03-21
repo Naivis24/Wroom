@@ -1,8 +1,8 @@
 let HomeController = require('./../controllers/HomeController');
-//let ResultatController = require('./../controllers/ResultatController');
-//let EcurieController = require('./../controllers/EcurieController');
+let ResultatController = require('./../controllers/ResultatController');
+let EcurieController = require('./../controllers/EcurieController');
 let PiloteController = require('./../controllers/PiloteController');
-//let CircuitController = require('./../controllers/CircuitController');
+let CircuitController = require('./../controllers/CircuitController');
 let ConnexionController = require('./../controllers/ConnexionController');
 
 // Routes
@@ -19,6 +19,10 @@ module.exports = function(app){
     app.get('/ajouterPilotes', PiloteController.nouveauPilote);
     app.post('/ajouterPilotes', PiloteController.ajouterPilote);
 
+// circuits
+    app.get('/listeCircuits', CircuitController.listeAllCircuit);
+    app.get('/ajouterCircuits', CircuitController.nouveauCircuit);
+    app.post('/ajouterCircuits', CircuitController.ajouterCircuit);
 
 
   // tout le reste

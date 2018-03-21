@@ -1,4 +1,4 @@
-let model = require('../models/resultat.js');
+let model = require('../../models/resultat.js');
 
   // //////////////////////////L I S T E R    R E S U L T A T S
 module.exports.ListerResultat = function(request, response){
