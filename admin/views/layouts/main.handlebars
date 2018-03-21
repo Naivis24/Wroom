@@ -28,7 +28,19 @@
 	<div id="contenu">
 		<br/>
 		<br/>
-			{{{body}}}
+		{{#if session.authenticated}}
+	  	{{{body}}}
+	  {{else}}
+			<form method="post" action="/connexion">
+		    <label>Login :</label>
+		    <input type="text" id="login" name="login"/>
+		    <label>Mot de passe :</label>
+		    <input type="password" id="mdp" name="mdp"/>
+		    <input type="submit" name="Valider" value="Valider"/>
+		  </form>
+	  {{/if}}
+
+
 	</div>
 				<div id="footer">
 					L'encyclopédie de la F1 depuis janvier 2018 (en NodeJS)

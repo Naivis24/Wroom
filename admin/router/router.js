@@ -12,7 +12,8 @@ module.exports = function(app){
     app.get('/', HomeController.Index);
 
 // connexion
-    app.get('/connexion', ConnexionController.SeConnecter);
+    app.get('/', ConnexionController.SeConnecter);
+    app.post('/connexion', ConnexionController.estConnecte);
 
 
 

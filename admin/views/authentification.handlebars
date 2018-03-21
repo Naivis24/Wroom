@@ -1,10 +1,6 @@
 <center>
-  {{#each login}}
-  <h2>Authentification réussi</h2>
-  <h2>Bienvenue  de mdp </h2>
-  {{else}}
   <h2>Administration</h2>
-  <form method="post" action="/authentification">
+  <form method="post" action="/connexion">
     <label>Login :</label>
     <input type="text" id="login" name="login"/>
     <label>Mot de passe :</label>
@@ -12,5 +8,4 @@
     <input type="submit" name="Annuler" value="Annuler"/>
     <input type="submit" name="Valider" value="Valider"/>
   </form>
-  {{/each}}
 </center>
