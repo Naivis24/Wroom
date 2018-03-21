@@ -1,7 +1,7 @@
 let HomeController = require('./../controllers/HomeController');
 //let ResultatController = require('./../controllers/ResultatController');
 //let EcurieController = require('./../controllers/EcurieController');
-//let PiloteController = require('./../controllers/PiloteController');
+let PiloteController = require('./../controllers/PiloteController');
 //let CircuitController = require('./../controllers/CircuitController');
 let ConnexionController = require('./../controllers/ConnexionController');
 
@@ -14,6 +14,9 @@ module.exports = function(app){
 // connexion
     app.get('/', ConnexionController.SeConnecter);
     app.post('/connexion', ConnexionController.estConnecte);
+
+//pilotes
+	app.get('/listePilotes', PiloteController.listeAllPilotes);
 
 
 

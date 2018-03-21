@@ -122,3 +122,17 @@ module.exports.get1EcurieFor1Pilote = function (pilnum, callback) {
          }
       });
 };
+
+module.exports.getAllPilotes = function (callback) {
+
+  db.getConnection(function(err, connexion){
+        if(!err){
+
+            let sql = 'select pilnum, pilnom, pilprenom, DATE_FORMAT(pildatenais, "%d/%m/%Y") as pilanniv from pilote';
+            connexion.query(sql, callback);
+
+
+            connexion.release();
+         }
+      });
+};
