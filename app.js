@@ -35,9 +35,6 @@ var handlebars  = require('./helpers/handlebars.js')(exphbs); //emplacement des 
 // helpers : ajouts de fonctionnalités pour handlebars
 app.engine('handlebars', handlebars.engine);
 // chargement du routeur
-console.log("APP : -------------------------------------------------------");
-console.log(app);
-console.log("ENSUITE -------------------------------------------------------");
 require('./router/router')(app);
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Serveur Node.js en attente sur le port ' + app.get('port'));

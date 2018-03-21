@@ -5,12 +5,15 @@
 
 
 {{#each dernierresultat}}
+
 <p>{{this.gpnom}} du {{this.gpdate}}</p>
+
+
+{{#each ../dernieremaj}}
+<p>Mise à jour : {{this.gpdatemaj}}</p>
  {{/each}}
 
-<p>Mise à jour : hier</p>
-
-<a href="#">Voir les résultats</a>
-
+<a href="/detailsResultat/{{this.gpnum}}">Voir les résultats</a>
+ {{/each}}
 </div>
 </center>

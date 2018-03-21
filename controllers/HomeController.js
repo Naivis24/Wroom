@@ -15,7 +15,15 @@ module.exports.GetDernierResultat = function(request, response){
             return;
         }
   		response.dernierresultat = result;
-  		console.log(dernierresultat);
+    });
+
+    model.getDerniereMaj( function(err, result){
+        if (err) {
+            // gestion de l'erreur
+            console.log(err);
+            return;
+        }
+  		response.dernieremaj = result;
     	response.render('home', response);
     });
 }
