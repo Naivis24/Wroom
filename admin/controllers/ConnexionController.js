@@ -15,6 +15,6 @@ module.exports.SeConnecter = function(request, response){
         response.login = result;
         console.log(result);
         //request.session.login =
-        response.render('listerEcurie', response);
+        response.render('authentification', response);
   });
 }

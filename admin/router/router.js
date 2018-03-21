@@ -12,7 +12,7 @@ module.exports = function(app){
     app.get('/', HomeController.Index);
 
 // connexion
-    app.get('/', ConnexionController.SeConnecter);
+    app.get('/connexion', ConnexionController.SeConnecter);
 
 
 
