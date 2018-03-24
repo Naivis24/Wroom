@@ -58,6 +58,8 @@ module.exports.ListerEcurieFor1Pays = function(request, response){
   });
 }
 
+
+// INSERTION
 module.exports.nouvelleEcurie = function(request, response){
    response.title = 'Ajouter une écurie';
 
@@ -105,3 +107,6 @@ module.exports.ajouterEcurie = function(request, response){
         response.render('succesRequeteInsertion', response);
     });
 }
+
+
+// MODIFICATION

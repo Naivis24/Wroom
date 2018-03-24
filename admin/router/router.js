@@ -18,6 +18,10 @@ module.exports = function(app){
     app.get('/listePilotes', PiloteController.listeAllPilotes);
     app.get('/ajouterPilotes', PiloteController.nouveauPilote);
     app.post('/ajouterPilotes', PiloteController.ajouterPilote);
+    app.get('/modifierPilotes/:pilnum', PiloteController.modifierPilote);
+    app.post('/modifierPilotes/:pilnum', PiloteController.enregistrerModificationsPilote);
+    app.get('/supprimerPilote/:pilnum', PiloteController.confirmationSuppressionPilote);
+    app.post('/supprimerPilote/:pilnum', PiloteController.supprimerPilote);
 
 // circuits
     app.get('/listeCircuits', CircuitController.listeAllCircuit);

@@ -16,6 +16,7 @@ module.exports.listeAllCircuit = function(request, response){
     });
 }
 
+// INSERTION
 module.exports.nouveauCircuit = function (request, response){
   response.title = "Ajouter un circuit";
       modelPilote.getAllNatio(function (err, result) {
@@ -51,3 +52,5 @@ module.exports.ajouterCircuit = function(request, response){
         response.render('succesRequeteInsertion', response);
     });
 }
+
+// MODIFICATION

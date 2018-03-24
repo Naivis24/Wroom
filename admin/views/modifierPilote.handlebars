@@ -1,0 +1,60 @@
+<center><h2>Modifier un pilote</h2></center>
+{{#each lePilote}}
+  <form method="post">
+    <table>
+      <tr>
+        <td><label>Prénom :</label></td>
+        <td><input type="text" id="pre" name="pre" value="{{this.pilprenom}}" required/></td>
+      </tr>
+      <tr>
+        <td><label>Nom :</label></td>
+        <td><input type="text" id="nom" name="nom" value="{{this.pilnom}}" required/></td>
+      </tr>
+      <tr>
+        <td><label>Date de naissance :</label></td>
+        <td><input type="text" id="jour" name="jour" value="{{this.jour}}" required/></td>
+        <td><label> / </label></td>
+        <td><input type="text" id="mois" name="mois" value="{{this.mois}}" required/></td>
+        <td><label> / </label></td>
+        <td><input type="text" id="annee" name="annee" value="{{this.annee}}" required/></td>
+      </tr>
+      <tr>
+        <td><label>Nationalité :</label></td>
+        <td>
+          <select id="natio" name="natio" required>
+            {{#each ../listeNatio}}
+              <option value="{{this.paynum}}" {{#ifCond this.paynum '==' ../this.paynum}} selected {{/ifCond}}>{{this.paynat}}</option>
+            {{/each}}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Ecurie :</label></td>
+        <td>
+          <select id="ecurie" name="ecurie" required>
+            {{#each ../listeEcurie}}
+              <option value="{{this.ecunum}}" {{#ifCond this.ecunum '==' ../this.ecunum}} selected {{/ifCond}}>{{this.ecunom}}</option>
+            {{/each}}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Points :</label></td>
+        <td><input type="number" id="points" name="points" value="{{this.pilpoints}}" required/></td>
+      </tr>
+      <tr>
+        <td><label>Poids :</label></td>
+        <td><input type="number" id="poids" name="poids" value="{{this.pilpoids}}" required/></td>
+      </tr>
+      <tr>
+        <td><label>Taille :</label></td>
+        <td><input type="number" id="taille" name="taille" value="{{this.piltaille}}" required/></td>
+      </tr>
+    </table>
+    <label>Description :</label>
+    <br>
+    <textarea rows="10" cols="50" id="description" name="description" required/>{{this.piltexte}}</textarea>
+    <br>
+    <input type="submit" name="Valider" value="Valider"/>
+  </form>
+{{/each}}

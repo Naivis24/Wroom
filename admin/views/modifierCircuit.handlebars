@@ -1,0 +1,39 @@
+<center><h2>Ajouter un pilote</h2></center>
+<form method="post">
+  <table>
+    <tr>
+      <td><label>Nom :</label></td>
+      <td><input type="text" id="nom" name="nom" required/></td>
+    </tr>
+    <tr>
+      <td><label>Longueur :</label></td>
+      <td><input type="number" id="long" name="long" required/></td>
+      <td><label>m</label></td>
+    </tr>
+    <tr>
+      <td><label>Pays :</label></td>
+      <td>
+        <select id="pays" name="pays" required>
+          {{#each listeNatio}}
+            <option value="{{this.paynum}}">{{this.paynom}}</option>
+          {{/each}}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Image :</label></td>
+      <td><input id="img" name="img" type="file" required/></td>
+    </tr>
+    <tr>
+      <td><label>Nombre de spectateurs :</label></td>
+      <td><input type="number" id="nbPers" name="nbPers" required/></td>
+      <td><label>personnes</label></td>
+    </tr>
+    <tr>
+      <td><label>Description :</label></td>
+      <td><input type="textarea" id="description" name="description" style="height:50px;width:200px" required/></td>
+    </tr>
+  </table>
+
+  <input type="submit" name="Valider" value="Valider"/>
+</form>
