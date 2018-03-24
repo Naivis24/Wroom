@@ -11,8 +11,8 @@ module.exports.listeAllCircuit = function(request, response){
             console.log(err);
             return;
         }
-  		response.listeDesCircuits = result;
-    	response.render('listerCircuit', response);
+  		response.listeAllCircuits = result;
+    	response.render('listeCircuits', response);
     });
 }
 
@@ -48,6 +48,6 @@ module.exports.ajouterCircuit = function(request, response){
         if(result.affectedRows == "1"){
           response.res = true;
         }
-        response.render('ajouterCircuit', response);
+        response.render('succesRequeteInsertion', response);
     });
 }

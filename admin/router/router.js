@@ -24,6 +24,11 @@ module.exports = function(app){
     app.get('/ajouterCircuits', CircuitController.nouveauCircuit);
     app.post('/ajouterCircuits', CircuitController.ajouterCircuit);
 
+// ecuries
+    app.get('/listeEcuries', EcurieController.listeAllEcurie);
+    app.get('/ajouterEcuries', EcurieController.nouvelleEcurie);
+    app.post('/ajouterEcuries', EcurieController.ajouterEcurie);
+
 
   // tout le reste
   app.get('*', HomeController.Index);

@@ -155,7 +155,8 @@ module.exports.ajouterPilote = function (pre, nom, jour, mois, annee, points, po
   db.getConnection(function(err, connexion){
         if(!err){
 
-            let sql = 'INSERT INTO pilote(pilnom, pilprenom, pildatenais, pilpoints, pilpoids, piltaille, piltexte, paynum, ecunum) VALUES("'+nom+'", "'+pre+'", "'+annee+"-"+mois+"-"+jour+'", '+points+','+poids+','+taille+', "'+description+'", '+natio+', '+ecurie+');';
+            let sql = 'INSERT INTO pilote(pilnom, pilprenom, pildatenais, pilpoints, pilpoids, piltaille, piltexte, paynum, ecunum)';
+						sql += 'VALUES("'+nom+'", "'+pre+'", "'+annee+"-"+mois+"-"+jour+'", '+points+','+poids+','+taille+', "'+description+'", '+natio+', '+ecurie+');';
 						console.log(sql);
             connexion.query(sql, callback);
 

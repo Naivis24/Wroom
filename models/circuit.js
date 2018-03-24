@@ -3,7 +3,7 @@ let db = require('../configDb');
 module.exports.getListeCircuits = function(callback){
 	db.getConnection(function(err, connexion){
 		if(!err){
-			let sql = "SELECT cirnum, payadrdrap, cirnom FROM circuit c INNER JOIN pays p ON p.paynum=c.paynum ORDER BY cirnom";
+			let sql = "SELECT cirnum, FROM circuit c INNER JOIN pays p ON p.paynum=c.paynum ORDER BY cirnom";
 
 			connexion.query(sql, callback);
 			connexion.release();
@@ -35,5 +35,4 @@ module.exports.ajouterCircuit = function(nom, long, pays, nbPers, description, i
 			connexion.release();
 		}
 	});
-
 };

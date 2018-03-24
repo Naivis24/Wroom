@@ -1,0 +1,24 @@
+<center>
+	<img src="/image/cat_circuit.png"/>
+	<h1>Gestion des Circuits</h1>
+
+	<a href="/ajouterCircuits" >Ajouter un circuit</a>
+	<br>
+	<br>
+	<table>
+		<tr>
+			<td>Nom</td>
+			<td>Longueur</td>
+			<td>Nombre de spéctateurs</td>
+			<td>Actions</td>
+		</tr>
+		{{#each listeAllCircuits}}
+			<tr>
+				<td>{{this.cirnom}}</td>
+				<td>{{this.cirlongueur}}</td>
+				<td>{{this.cirnbspectateurs}}</td>
+				<td><img src="/image/act_edit.png"><a href="#">Modifier</a> <img src="/image/act_delete.png"><a href="#">Supprimer</a></td>
+			</tr>
+		{{/each}}
+	</table>
+</center>

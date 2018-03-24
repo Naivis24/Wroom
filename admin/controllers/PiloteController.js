@@ -75,6 +75,6 @@ module.exports.ajouterPilote = function (request, response){
           if(result.affectedRows == "1"){
             response.res = true;
           }
-          response.render('ajouterPilote', response);
+          response.render('succesRequeteInsertion', response);
         });
 }
