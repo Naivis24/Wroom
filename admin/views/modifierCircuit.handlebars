@@ -1,21 +1,22 @@
-<center><h2>Ajouter un pilote</h2></center>
+<center><h2>Modifier un circuit</h2></center>
+{{#each leCircuit}}
 <form method="post">
   <table>
     <tr>
       <td><label>Nom :</label></td>
-      <td><input type="text" id="nom" name="nom" required/></td>
+      <td><input type="text" id="nom" name="nom" value="{{this.cirnom}}" required/></td>
     </tr>
     <tr>
       <td><label>Longueur :</label></td>
-      <td><input type="number" id="long" name="long" required/></td>
+      <td><input type="number" id="long" name="long" value="{{this.cirlongueur}}" required/></td>
       <td><label>m</label></td>
     </tr>
     <tr>
       <td><label>Pays :</label></td>
       <td>
         <select id="pays" name="pays" required>
-          {{#each listeNatio}}
-            <option value="{{this.paynum}}">{{this.paynom}}</option>
+          {{#each ../listeNatio}}
+            <option value="{{this.paynum}}" {{#ifCond this.paynum '==' ../this.paynum}} selected {{/ifCond}}>{{this.paynom}}</option>
           {{/each}}
         </select>
       </td>
@@ -26,14 +27,15 @@
     </tr>
     <tr>
       <td><label>Nombre de spectateurs :</label></td>
-      <td><input type="number" id="nbPers" name="nbPers" required/></td>
+      <td><input type="number" id="nbPers" name="nbPers" value="{{this.cirnbspectateurs}}" required/></td>
       <td><label>personnes</label></td>
     </tr>
     <tr>
       <td><label>Description :</label></td>
-      <td><input type="textarea" id="description" name="description" style="height:50px;width:200px" required/></td>
+      <td><textarea rows="10" cols="50" id="description" name="description" required/>{{this.cirtext}}</textarea></td>
     </tr>
   </table>
 
   <input type="submit" name="Valider" value="Valider"/>
 </form>
+{{/each}}

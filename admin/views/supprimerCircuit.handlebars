@@ -1,0 +1,12 @@
+<h2>Supprimer un circuit</h2>
+{{#each leCircuit}}
+  <center>
+    <form method="post">
+      <label>Etes-vous sûr de vouloir supprimer le circuit {{this.cirnom}} ?</label>
+      <label>(cela supprimera en cascade tous les grands et les pilotes)</label>
+      <br>
+      <input type="submit" name="Valider" value="Valider"/>
+      <button formaction="../../">Retour</button>
+    </form>
+  </center>
+{{/each}}

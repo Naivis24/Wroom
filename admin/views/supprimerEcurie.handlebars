@@ -1,0 +1,12 @@
+<h2>Supprimer une écurie</h2>
+{{#each lePilote}}
+  <center>
+    <form method="post">
+      <label>Etes-vous sûr de vouloir supprimer {{this.pilprenom}} {{this.pilnom}} ?</label>
+      <label>(cela supprimera tous les grands prix auxquels ce pilote a participé)</label>
+      <br>
+      <input type="submit" name="Valider" value="Valider"/>
+      <button formaction="../../">Retour</button>
+    </form>
+  </center>
+{{/each}}

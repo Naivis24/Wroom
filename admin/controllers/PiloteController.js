@@ -145,7 +145,7 @@ module.exports.enregistrerModificationsPilote = function (request, response){
 
 // SUPPRESSION
 module.exports.confirmationSuppressionPilote = function (request, response){
-  response.title = "Modifier un pilote";
+  response.title = "Supprimer un pilote";
   var pilnum = request.params.pilnum;
       model.get1Pilote(pilnum, function (err, result) {
           if (err) {
@@ -159,7 +159,7 @@ module.exports.confirmationSuppressionPilote = function (request, response){
 }
 
 module.exports.supprimerPilote = function (request, response){
-      response.title = "Modifier un pilote";
+      response.title = "Supprimer un pilote";
       var pilnum = request.params.pilnum;
 
       model.supprimerPilote(pilnum, function (err, result) {

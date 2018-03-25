@@ -27,12 +27,19 @@ module.exports = function(app){
     app.get('/listeCircuits', CircuitController.listeAllCircuit);
     app.get('/ajouterCircuits', CircuitController.nouveauCircuit);
     app.post('/ajouterCircuits', CircuitController.ajouterCircuit);
+    app.get('/modifierCircuits/:cirnum', CircuitController.modifierCircuit);
+    app.post('/modifierCircuits/:cirnum', CircuitController.enregistrerModificationsCircuit);
+    app.get('/supprimerCircuit/:cirnum', CircuitController.confirmationSuppressionCircuit);
+    app.post('/supprimerCircuit/:cirnum', CircuitController.supprimerCircuit);
 
 // ecuries
     app.get('/listeEcuries', EcurieController.listeAllEcurie);
     app.get('/ajouterEcuries', EcurieController.nouvelleEcurie);
     app.post('/ajouterEcuries', EcurieController.ajouterEcurie);
-
+    app.get('/modifierEcuries/:ecunum', CircuitController.modifierCircuit);
+    app.post('/modifierEcuries/:ecunum', CircuitController.enregistrerModificationsCircuit);
+    app.get('/supprimerEcurie/:ecunum', CircuitController.confirmationSuppressionCircuit);
+    app.post('/supprimerEcurie/:ecunum', CircuitController.supprimerCircuit);
 
   // tout le reste
   app.get('*', HomeController.Index);
