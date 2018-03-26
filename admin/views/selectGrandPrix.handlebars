@@ -1,0 +1,13 @@
+<center>
+	<img src="/image/cat_resultat.png"/>
+	<h1>Resultats</h1>
+  <form method="post">
+  	<p>Sélectionner un Grand Prix</p>
+    <select id="natio" name="natio" required>
+      {{#each listeGP}}
+        <option value="{{this.gpnum}}">{{this.gpnom}}</option>
+      {{/each}}
+    </select>
+    <input type="submit" name="Valider" value="Valider"/>
+  </form>
+</center>

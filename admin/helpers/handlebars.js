@@ -2,6 +2,7 @@
 
 
 let moment = require('moment');
+let crypto = require('crypto');
 
 function hbsHelpers(handlebars) {
     return handlebars.create({
@@ -129,6 +130,13 @@ function hbsHelpers(handlebars) {
                     default:
                         return options.inverse(this);
                 }
+            },
+
+            // SHA1
+            sha1 : function (mdp){
+              hash = crypto.createHmac('sha1').update(mdp).digest('hex');
+              console.log(hash);
+              return hash;
             }
         }
     });
