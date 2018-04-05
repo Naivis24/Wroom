@@ -50,7 +50,8 @@ module.exports.get1Pilote = function (pilnum, callback) {
         	  // s'il n'y a pas d'erreur de connexion
         	  // execution de la requête SQL
 
-						let sql = 'select y.paynat, h.phoadresse, p.pilnum, p.paynum, pilnom, pilprenom, DATE_FORMAT(pildatenais, "%d/%m/%Y"), pilpigiste, pilpoints, CONVERT(pilpoids, char) as pilpoids, CONVERT(piltaille, char) as piltaille, piltexte, ecunum, DAY(pildatenais) as jour, MONTH(pildatenais) as mois, YEAR(pildatenais) as annee from pilote p, photo h, pays y where y.paynum=p.paynum and h.pilnum=p.pilnum and phonum=1 and p.pilnum='+pilnum+';';
+						let sql = 'select y.paynat, p.pilnum, p.paynum, pilnom, pilprenom, DATE_FORMAT(pildatenais, "%d/%m/%Y"), pilpigiste, pilpoints, CONVERT(pilpoids, char) as pilpoids, CONVERT(piltaille, char) as piltaille, piltexte, ecunum, DAY(pildatenais) as jour, MONTH(pildatenais) as mois, YEAR(pildatenais) as annee from pilote p, pays y where y.paynum=p.paynum and p.pilnum='+pilnum+';';
+						console.log(sql);
 						connexion.query(sql, callback);
 
             // la connexion retourne dans le pool
@@ -186,27 +187,31 @@ module.exports.supprimerPilote = function (pilnum, callback) {
   db.getConnection(function(err, connexion){
         if(!err){
 
+						console.log('suppression');
 						// suppression des sponsors
-						let sql = 'DELETE FROM sponsorise WHERE pilnum='+pilnum+';\n';
-
-						// suppression des photos
-						sql += ' DELETE FROM photo WHERE pilnum='+pilnum+';\n';
-
-						// suppression des grands prix
-						//sql += ' DELETE FROM course WHERE pilnum='+pilnum+';\n';
-
-						// suppression des courses
-						sql += ' DELETE FROM course WHERE pilnum='+pilnum+';\n';
-
-						// suppression des essais
-						sql += ' DELETE FROM essais WHERE pilnum='+pilnum+';\n';
-
-						// suppression du pilote
-            sql += ' DELETE FROM pilote WHERE pilnum='+pilnum+';';
-
-
+						let sql = 'DELETE FROM sponsorise WHERE pilnum='+pilnum;
+						console.log(sql);
 						connexion.query(sql, callback);
 
+						// suppression des photos
+						sql = 'DELETE FROM photo WHERE pilnum='+pilnum;
+						console.log(sql);
+						connexion.query(sql, callback);
+
+						// suppression des courses
+						sql = 'DELETE FROM course WHERE pilnum='+pilnum;
+						console.log(sql);
+						connexion.query(sql, callback);
+
+						// suppression des essais
+						sql = 'DELETE FROM essais WHERE pilnum='+pilnum;
+						console.log(sql);
+						connexion.query(sql, callback);
+
+						// suppression du pilote
+						sql = 'DELETE FROM pilote WHERE pilnum='+pilnum;
+						console.log(sql);
+						connexion.query(sql, callback);
             connexion.release();
          }
       });

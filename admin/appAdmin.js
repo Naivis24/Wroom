@@ -1,9 +1,11 @@
 let express         = require('express'),
     session         = require('express-session'),
+    fileUpload      = require('express-fileupload');
     cookieParser    = require('cookie-parser'),
     bodyParser      = require('body-parser'), //pour récupérer les résultats des post
     http = require('http'),
     path = require('path');
+    async = require('async');
 
 let app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -25,6 +27,10 @@ app.use(function(request, response, next){
     response.locals.session = request.session;
     next();
 });
+
+// Pour upload les images
+app.use(fileUpload());
+
 /* express-handlebars - https://github.com/ericf/express-handlebars
 *  Handlebars : moteur de template pour Express.
 * il va gérer les vues

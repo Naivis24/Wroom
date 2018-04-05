@@ -154,6 +154,7 @@ module.exports.confirmationSuppressionPilote = function (request, response){
               return;
           }
           response.lePilote = result;
+          console.log(response.lePilote);
           response.render('supprimerPilote', response);
         });
 }
@@ -162,12 +163,19 @@ module.exports.supprimerPilote = function (request, response){
       response.title = "Supprimer un pilote";
       var pilnum = request.params.pilnum;
 
-      model.supprimerPilote(pilnum, function (err, result) {
+      async.parallel([
+        function(callback){
+          model.supprimerPilote(pilnum, function (err, result){callback(null, result)}),
+          model.supprimerPilote(pilnum, function (err, result){callback(null, result)});},
+      ],
+      function (err, result) {
           if (err) {
               // gestion de l'erreur
               console.log(err);
               return;
           }
+          response.letext = result[0];
+          response.letext = result[1];
           if(result.affectedRows == "1"){
             response.res = true;
           }

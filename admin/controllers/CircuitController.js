@@ -33,6 +33,31 @@ module.exports.nouveauCircuit = function (request, response){
 module.exports.ajouterCircuit = function(request, response){
   response.title = 'Ajouter un circuit';
 
+  console.log('req ------------------');
+  console.log(request);
+  console.log('FIN rq ------------------');
+
+  console.log('FILES ------------------');
+  console.log(request.files);
+  console.log('FIN FILES ------------------');
+
+  // Image
+  if (!request.files)
+    return response.status(400).send('No files were uploaded.');
+
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  let sampleFile = request.files.img;
+
+  // Use the mv() method to place the file somewhere on your server
+  sampleFile.mv('/image/circuit/filename.jpg', function(err) {
+    if (err)
+      return response.status(500).send(err);
+
+    console.log('File uploaded!');
+    response.send('File uploaded!');
+  });
+  // ----------------
+
   var nom = request.body.nom;
   var long = request.body.long;
   var pays = request.body.pays;
