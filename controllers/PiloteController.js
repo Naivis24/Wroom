@@ -52,6 +52,15 @@ module.exports.DetailsSurUnPilote = function (request, response){
       response.listeLettrePilote = result;
   });
 
+  model.getPhotoProfilFor1Pilote(data, function (err, result) {
+      if (err) {
+          // gestion de l'erreur
+          console.log(err);
+          return;
+      }
+      response.photoProfil = result;
+  });
+
   model.getSponsorFor1Pilote(data, function (err, result) {
       if (err) {
           // gestion de l'erreur

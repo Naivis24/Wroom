@@ -51,6 +51,22 @@ module.exports.get1Pilote = function (pilnum, callback) {
         	  // execution de la requête SQL
 
 						let sql = 'select y.paynat, p.pilnum, p.paynum, pilnom, pilprenom, DATE_FORMAT(pildatenais, "%d/%m/%Y"), pilpigiste, pilpoints, CONVERT(pilpoids, char) as pilpoids, CONVERT(piltaille, char) as piltaille, piltexte, ecunum, DAY(pildatenais) as jour, MONTH(pildatenais) as mois, YEAR(pildatenais) as annee from pilote p, pays y where y.paynum=p.paynum and p.pilnum='+pilnum+';';
+						connexion.query(sql, callback);
+
+            // la connexion retourne dans le pool
+            connexion.release();
+         }
+      });
+};
+
+module.exports.getPhotoProfilFor1Pilote = function (pilnum, callback) {
+   // connection à la base
+	db.getConnection(function(err, connexion){
+        if(!err){
+        	  // s'il n'y a pas d'erreur de connexion
+        	  // execution de la requête SQL
+
+						let sql = 'select phosujet, phocommentaire, phoadresse from photo where phonum=1 AND pilnum='+pilnum;
 						console.log(sql);
 						connexion.query(sql, callback);
 

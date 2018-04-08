@@ -12,7 +12,9 @@
 {{#each lePilote}}
   <table>
     <tr>
-      <td><img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{this.pilprenom}} {{this.pilnom}}" height="100" width="100"></td>
+			{{#each ../photoProfil}}
+      	<td><img src="/image/pilote/{{this.phoadresse}}" alt="Photo de {{../this.pilprenom}} {{../this.pilnom}}" height="100" width="100"></td>
+			{{/each}}
       <td><p><strong>Nom : </strong>{{this.pilnom}} {{this.pilprenom}}</p></td>
 		</tr>
 		<tr>

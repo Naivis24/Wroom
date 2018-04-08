@@ -165,7 +165,6 @@ module.exports.supprimerPilote = function (request, response){
 
       async.parallel([
         function(callback){
-          model.supprimerPilote(pilnum, function (err, result){callback(null, result)}),
           model.supprimerPilote(pilnum, function (err, result){callback(null, result)});},
       ],
       function (err, result) {
